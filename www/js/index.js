@@ -38,6 +38,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
+        var divC = document.getElementById("content");
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
@@ -45,5 +46,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        divC.innerHTML = 'Phonegap : ' + device.cordova + '<br>' + device.platform + '<br>' + device.model;
+        navigator.notification.alert("Phonegap is Ready");
     }
 };
